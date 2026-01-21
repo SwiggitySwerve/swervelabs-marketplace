@@ -17,7 +17,7 @@
       },
       "description": "AI-powered product planning: Vision → Features → Design → Build. Guide products from idea to implementation through a simple 4-step process.",
       "version": "1.0.0",
-      "npm": "opencode-locus-product-planning",
+      "npm": "locus-product-planning",
       "commands": ["/locus", "/locus-status", "/locus-list"],
       "strict": true
     }

@@ -16,7 +16,7 @@ Add plugins directly to your `opencode.json`:
 
 ```json
 {
-  "plugin": ["opencode-locus-product-planning"]
+"plugin": ["locus-product-planning"]
 }
 ```
 
@@ -33,7 +33,7 @@ Guide your products from idea to implementation through a simple 4-step process.
 | | |
 |---|---|
 | **Commands** | `/locus`, `/locus-status`, `/locus-list` |
-| **npm** | `opencode-locus-product-planning` |
+| **npm** | `locus-product-planning` |
 | **Repository** | [github.com/SwiggitySwerve/locus-product-planning](https://github.com/SwiggitySwerve/locus-product-planning) |
 
 **Install (Claude Code):**
@@ -43,7 +43,7 @@ Guide your products from idea to implementation through a simple 4-step process.
 
 **Install (OpenCode):**
 ```json
-{"plugin": ["opencode-locus-product-planning"]}
+{"plugin": ["locus-product-planning"]}
 ```
 
 **Quick Start:**
