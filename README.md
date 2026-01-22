@@ -32,6 +32,7 @@ Guide your products from idea to implementation through a simple 4-step process.
 
 | | |
 |---|---|
+| **Version** | 1.0.0 |
 | **Commands** | `/locus`, `/locus-status`, `/locus-list` |
 | **npm** | `locus-product-planning` |
 | **Repository** | [github.com/SwiggitySwerve/locus-product-planning](https://github.com/SwiggitySwerve/locus-product-planning) |
@@ -68,15 +69,16 @@ Say **"continue"** to move forward. That's it.
 
 ### UX Toolkit
 
-**AI-powered UI/UX review toolkit for comprehensive usability audits**
+**AI-powered UI/UX review toolkit with 25 skills and 18 agents**
 
-Skills, agents, and commands for usability heuristics, accessibility compliance (WCAG 2.2), visual design analysis, and interaction pattern review.
+Comprehensive toolkit for usability audits, accessibility compliance (WCAG 2.2), visual design analysis, interaction pattern review, and specialized page reviews (list, detail, editor, game UI, replay).
 
 | | |
 |---|---|
+| **Version** | 0.4.1 |
 | **Commands** | `/ux-audit`, `/a11y-check`, `/design-review`, `/screenshot-review` |
-| **Agents** | `ux-auditor`, `ux-engineer`, `accessibility-auditor`, `accessibility-engineer`, `visual-reviewer`, `interaction-reviewer` |
-| **Skills** | `ux-heuristics`, `wcag-accessibility`, `visual-design-system`, `interaction-patterns`, `react-ux-patterns`, `mobile-responsive-ux` |
+| **Agents** | 18 specialized agents for UX, accessibility, visual design, and interaction review |
+| **Skills** | 25 skills covering heuristics, WCAG, visual systems, patterns, and more |
 | **npm** | `ux-toolkit` |
 | **Repository** | [github.com/SwiggitySwerve/ux-toolkit](https://github.com/SwiggitySwerve/ux-toolkit) |
 
@@ -113,6 +115,7 @@ npx ux-toolkit install --global
 swervelabs-marketplace/
 ├── .claude-plugin/
 │   └── marketplace.json    # Plugin catalog
+├── opencode.json           # OpenCode CLI configuration
 ├── README.md               # This file
 └── LICENSE                 # MIT
 ```
