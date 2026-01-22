@@ -28,7 +28,7 @@
         "url": "https://github.com/SwiggitySwerve/ux-toolkit.git"
       },
       "description": "AI-powered UI/UX review toolkit with 25 skills, 18 agents, and commands for comprehensive usability audits, accessibility compliance, visual design analysis, and specialized page reviews (list, detail, editor, game UI, replay).",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "npm": "ux-toolkit",
       "commands": ["/ux-audit", "/a11y-check", "/design-review", "/screenshot-review"],
       "strict": true
