@@ -9,7 +9,7 @@
     "version": "1.0.0"
   },
   "plugins": [
-    {
+{
       "name": "locus-product-planning",
       "source": {
         "source": "url",
@@ -19,6 +19,18 @@
       "version": "1.0.0",
       "npm": "locus-product-planning",
       "commands": ["/locus", "/locus-status", "/locus-list"],
+      "strict": true
+    },
+    {
+      "name": "ux-toolkit",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/SwiggitySwerve/ux-toolkit.git"
+      },
+      "description": "AI-powered UI/UX review toolkit with skills, agents, and commands for comprehensive usability audits, accessibility compliance, and visual design analysis.",
+      "version": "0.1.0",
+      "npm": "ux-toolkit",
+      "commands": ["/ux-audit", "/a11y-check", "/design-review", "/screenshot-review"],
       "strict": true
     }
   ]

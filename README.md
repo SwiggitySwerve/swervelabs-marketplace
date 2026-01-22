@@ -66,6 +66,47 @@ Say **"continue"** to move forward. That's it.
 
 ---
 
+### UX Toolkit
+
+**AI-powered UI/UX review toolkit for comprehensive usability audits**
+
+Skills, agents, and commands for usability heuristics, accessibility compliance (WCAG 2.2), visual design analysis, and interaction pattern review.
+
+| | |
+|---|---|
+| **Commands** | `/ux-audit`, `/a11y-check`, `/design-review`, `/screenshot-review` |
+| **Agents** | `ux-auditor`, `ux-engineer`, `accessibility-auditor`, `accessibility-engineer`, `visual-reviewer`, `interaction-reviewer` |
+| **Skills** | `ux-heuristics`, `wcag-accessibility`, `visual-design-system`, `interaction-patterns`, `react-ux-patterns`, `mobile-responsive-ux` |
+| **npm** | `ux-toolkit` |
+| **Repository** | [github.com/SwiggitySwerve/ux-toolkit](https://github.com/SwiggitySwerve/ux-toolkit) |
+
+**Install (Claude Code):**
+```bash
+/plugin install ux-toolkit@swervelabs-marketplace
+```
+
+**Install (OpenCode):**
+```json
+{"plugin": ["ux-toolkit"]}
+```
+
+**Or install globally via CLI:**
+```bash
+npx ux-toolkit install --global
+```
+
+**Quick Start:**
+```
+/ux-audit src/components/Button.tsx
+
+→ Performs comprehensive UX audit against Nielsen's heuristics
+→ Checks WCAG 2.2 accessibility compliance
+→ Reviews visual design consistency
+→ Provides severity-rated issues with specific fixes
+```
+
+---
+
 ## Marketplace Structure
 
 ```
@@ -80,6 +121,7 @@ swervelabs-marketplace/
 
 - **Issues**: [github.com/SwiggitySwerve/swervelabs-marketplace/issues](https://github.com/SwiggitySwerve/swervelabs-marketplace/issues)
 - **Locus Product Planning**: [github.com/SwiggitySwerve/locus-product-planning](https://github.com/SwiggitySwerve/locus-product-planning)
+- **UX Toolkit**: [github.com/SwiggitySwerve/ux-toolkit](https://github.com/SwiggitySwerve/ux-toolkit)
 
 ## License
 
