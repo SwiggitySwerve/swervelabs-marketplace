@@ -32,7 +32,7 @@ Guide your products from idea to implementation through a simple 4-step process.
 
 | | |
 |---|---|
-| **Version** | 1.0.0 |
+| **Version** | 1.2.17 |
 | **Commands** | `/locus`, `/locus-status`, `/locus-list` |
 | **npm** | `locus-product-planning` |
 | **Repository** | [github.com/SwiggitySwerve/locus-product-planning](https://github.com/SwiggitySwerve/locus-product-planning) |
@@ -75,7 +75,7 @@ Comprehensive toolkit for usability audits, accessibility compliance (WCAG 2.2),
 
 | | |
 |---|---|
-| **Version** | 0.4.1 |
+| **Version** | 0.5.2 |
 | **Commands** | `/ux-audit`, `/a11y-check`, `/design-review`, `/screenshot-review` |
 | **Agents** | 18 specialized agents for UX, accessibility, visual design, and interaction review |
 | **Skills** | 25 skills covering heuristics, WCAG, visual systems, patterns, and more |
