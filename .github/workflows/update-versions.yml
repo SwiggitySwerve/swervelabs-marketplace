@@ -1,0 +1,100 @@
+name: Update Plugin Versions
+
+on:
+  schedule:
+    # Run daily at midnight UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    # Allow manual trigger
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-versions:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check and update plugin versions
+        id: update
+        run: |
+          # Define plugins to check (npm package name)
+          PLUGINS=("locus-product-planning" "ux-toolkit")
+          
+          UPDATES_MADE=false
+          UPDATE_SUMMARY=""
+          
+          for PLUGIN in "${PLUGINS[@]}"; do
+            echo "Checking $PLUGIN..."
+            
+            # Get latest version from npm
+            LATEST=$(npm view "$PLUGIN" version 2>/dev/null || echo "")
+            
+            if [ -z "$LATEST" ]; then
+              echo "  Warning: Could not fetch version for $PLUGIN"
+              continue
+            fi
+            
+            echo "  Latest npm version: $LATEST"
+            
+            # Get current version from marketplace.json
+            CURRENT=$(jq -r --arg name "$PLUGIN" '.plugins[] | select(.name == $name) | .version' .claude-plugin/marketplace.json)
+            echo "  Current version: $CURRENT"
+            
+            if [ "$LATEST" != "$CURRENT" ]; then
+              echo "  Updating $PLUGIN: $CURRENT -> $LATEST"
+              
+              # Update marketplace.json
+              jq --arg name "$PLUGIN" --arg version "$LATEST" \
+                '(.plugins[] | select(.name == $name) | .version) = $version' \
+                .claude-plugin/marketplace.json > tmp.json && mv tmp.json .claude-plugin/marketplace.json
+              
+              # Update README.md - find the version line in the plugin's table
+              # Pattern: | **Version** | X.X.X |
+              sed -i "s/| \*\*Version\*\* | $CURRENT |/| **Version** | $LATEST |/g" README.md
+              
+              UPDATES_MADE=true
+              UPDATE_SUMMARY="${UPDATE_SUMMARY}- ${PLUGIN}: ${CURRENT} -> ${LATEST}\n"
+            else
+              echo "  Already up to date"
+            fi
+          done
+          
+          echo "updates_made=$UPDATES_MADE" >> $GITHUB_OUTPUT
+          
+          # Store summary for PR body (escape newlines for GitHub Actions)
+          if [ "$UPDATES_MADE" = true ]; then
+            echo "update_summary<<EOF" >> $GITHUB_OUTPUT
+            echo -e "$UPDATE_SUMMARY" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.update.outputs.updates_made == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: update plugin versions'
+          title: 'chore: update plugin versions'
+          body: |
+            Automated plugin version updates from npm registry.
+            
+            ## Changes
+            ${{ steps.update.outputs.update_summary }}
+            
+            ---
+            *This PR was automatically created by the version update workflow.*
+          branch: auto-update/plugin-versions
+          delete-branch: true
+          labels: |
+            automated
+            dependencies
