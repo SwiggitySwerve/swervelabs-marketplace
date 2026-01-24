@@ -75,7 +75,7 @@ Comprehensive toolkit for usability audits, accessibility compliance (WCAG 2.2),
 
 | | |
 |---|---|
-| **Version** | 0.5.2 |
+| **Version** | 0.5.3 |
 | **Commands** | `/ux-audit`, `/a11y-check`, `/design-review`, `/screenshot-review` |
 | **Agents** | 18 specialized agents for UX, accessibility, visual design, and interaction review |
 | **Skills** | 25 skills covering heuristics, WCAG, visual systems, patterns, and more |
